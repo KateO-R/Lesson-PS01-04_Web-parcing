@@ -8,6 +8,7 @@ url = "https://randomword.com/"
 response = requests.get(url)
 
 
+# define the function to get information from the url
 def get_english_words():
     url = "https://randomword.com/"
     try:
@@ -24,12 +25,14 @@ def get_english_words():
     except:
         print("Error")
 
+
+# define the function to create the game
 def word_game():
     print("Welcome to the game!")
     while True:
         word_dict = get_english_words()
         word = word_dict.get("english_words")
-        result1 = translator.translate(word, dest="ru")
+        result1 = translator.translate(word, dest="ru")  #using the Translate method according to the task
         word_definition = word_dict.get("word_definition")
         result2 = translator.translate(word_definition, dest="ru")
 
@@ -44,5 +47,6 @@ def word_game():
         if play_again != "y":
             print("Thanks for playing!")
             break
+
 
 word_game()
